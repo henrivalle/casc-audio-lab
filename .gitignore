@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env*
+*.wav
+*.aiff
+*.mp3
+*.flac
+*.m4a
+/private/
+/models/
+/config.json
