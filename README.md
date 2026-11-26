@@ -12,6 +12,8 @@ Python 3.9+ is sufficient for scoring. The example uses synthetic text and requi
 python3 casc_audio.py score examples/manifest.csv examples/predictions.csv
 ```
 
+In the `accent` row, `avó` versus `avo` counts as one word error (WER 25%). The period and exclamation mark are ignored.
+
 Create a UTF-8 CSV called `manifest.csv` with columns `id,audio,reference` for local transcription. Use unique IDs, local audio paths relative to the CSV, and transcripts checked by a person. Quote fields with commas. The `audio` column is optional for scoring saved predictions. A predictions CSV uses exactly one `id,hypothesis` pair per manifest ID. Keep `hypothesis` empty when the model returns no words.
 
 ## Transcribe on a CPU
@@ -34,6 +36,8 @@ Compare sistemas de transcrição nos mesmos áudios. Use o exemplo com textos s
 ```sh
 python3 casc_audio.py score examples/manifest.csv examples/predictions.csv
 ```
+
+Na linha `accent`, `avó` e `avo` contam como um erro de palavra (WER de 25%). O ponto final e o ponto de exclamação são ignorados.
 
 Para testar com seus próprios áudios, use Python 3.12 e instale `requirements-whisper.txt` em um ambiente virtual. Crie um CSV UTF-8 com as colunas `id,audio,reference`. Use um identificador único, caminho local relativo ao manifesto e texto conferido manualmente. Execute `python casc_audio.py transcribe manifest.csv --language pt --allow-download` para carregar o modelo na primeira execução. Com um modelo local, use `--model /caminho/do/modelo` sem `--allow-download`. Áudios e textos ficam no seu computador durante a avaliação. O relatório só contém as transcrições se você passar `--include-transcripts`.
 
